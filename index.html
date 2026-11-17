@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101114">
+  <title>QUREO Solver — لوحة التحكم</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">Q</div>
+        <div><strong>QUREO <span>Solver</span></strong><small>SMART ASSISTANT</small></div>
+      </div>
+      <div class="side-label">القائمة الرئيسية</div>
+      <a class="nav active" href="#dashboard"><span>▦</span> لوحة التحكم</a>
+      <a class="nav" href="#solver"><span>⌘</span> مساحة الحل</a>
+      <a class="nav" href="#activity"><span>◷</span> سجل النشاط</a>
+      <div class="sidebar-bottom">
+        <div class="mini-status"><i></i><div><b>وضع العرض التجريبي</b><small>المحرك غير متصل</small></div></div>
+        <div class="version">QUREO Solver <span>v1.0</span></div>
+      </div>
+    </aside>
+
+    <main class="main" id="dashboard">
+      <header class="topbar">
+        <div>
+          <div class="eyebrow">مساحة العمل / الرئيسية</div>
+          <h1>لوحة التحكم</h1>
+        </div>
+        <div class="top-actions">
+          <span class="connection"><i></i> واجهة تجريبية</span>
+          <div class="avatar">QS</div>
+        </div>
+      </header>
+
+      <section class="welcome">
+        <div class="welcome-copy">
+          <div class="pill"><span class="spark">✦</span> مساعدك البرمجي</div>
+          <h2>أهلاً بك في <em>QUREO Solver</em></h2>
+          <p>مساحة موحدة لقراءة التمارين وتجهيز الأكواد ومراجعة النتائج.</p>
+          <a class="primary-btn" href="#solver">افتح مساحة الحل <span>←</span></a>
+        </div>
+        <div class="orb-wrap" aria-hidden="true">
+          <div class="orb"><div class="orb-eye"></div><div class="orb-eye second"></div><div class="orb-mouth"></div></div>
+          <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+          <span class="float-tag">AI ASSISTANT</span>
+        </div>
+      </section>
+
+      <section class="stats">
+        <article class="stat-card"><div class="stat-icon orange">⌁</div><div><small>التمارين المقروءة</small><strong id="readCount">0</strong><span class="muted">في هذه الجلسة</span></div></article>
+        <article class="stat-card"><div class="stat-icon purple">{ }</div><div><small>الأكواد المجهزة</small><strong id="codeCount">0</strong><span class="muted">في هذه الجلسة</span></div></article>
+        <article class="stat-card"><div class="stat-icon green">✓</div><div><small>الاختبارات الناجحة</small><strong id="testCount">0</strong><span class="muted">في هذه الجلسة</span></div></article>
+        <article class="stat-card"><div class="stat-icon blue">◷</div><div><small>حالة التشغيل</small><strong class="small-state" id="runState">متوقف</strong><span class="muted">وضع العرض فقط</span></div></article>
+      </section>
+
+      <section class="workspace" id="solver">
+        <div class="section-heading">
+          <div><div class="eyebrow">WORKSPACE</div><h2>مساحة الحل</h2></div>
+          <div class="actions"><button class="ghost-btn" id="readBtn">⌕ قراءة تمرين تجريبي</button><button class="stop-btn" id="stopBtn">إيقاف</button><button class="start-btn" id="startBtn">▶ تشغيل</button></div>
+        </div>
+        <div class="workspace-grid">
+          <article class="panel task-panel">
+            <div class="panel-head"><div><span class="dot orange-dot"></span><b>التمرين الحالي</b></div><span class="tag">DEMO</span></div>
+            <div class="empty-state" id="emptyTask">
+              <div class="empty-icon">⌕</div>
+              <b>لا يوجد تمرين مقروء</b>
+              <p>اضغط على «قراءة تمرين تجريبي» لعرض مثال واختبار الواجهة.</p>
+            </div>
+            <div class="task-content hidden" id="taskContent">
+              <span class="task-type">HTML · مبتدئ</span>
+              <h3>أنشئ صفحة ويب بسيطة</h3>
+              <p>اكتب صفحة HTML تحتوي على العناصر التالية:</p>
+              <ol>
+                <li>عنوان الصفحة: <code>My First Page</code></li>
+                <li>عنوان رئيسي: <code>Hello QUREO</code></li>
+                <li>فقرة: <code>This is my first test page.</code></li>
+                <li>زر مكتوب عليه <code>Click Me</code> يعرض رسالة <code>Hello!</code> عند الضغط.</li>
+              </ol>
+              <div class="task-note">هذا تمرين محلي للتجربة، وليس قراءة مباشرة من منصة QUREO.</div>
+            </div>
+          </article>
+
+          <article class="panel editor-panel">
+            <div class="panel-head"><div><span class="dot green-dot"></span><b>محرر الأكواد</b></div><span class="tag">HTML</span></div>
+            <div class="editor-toolbar"><span>index.html</span><div><button id="copyBtn" title="نسخ الكود">نسخ</button><button id="clearBtn" title="مسح المحرر">مسح</button></div></div>
+            <textarea id="codeEditor" spellcheck="false" placeholder="اكتب كود HTML هنا أو اضغط «إدراج مثال»..."></textarea>
+            <div class="editor-footer"><span><i class="tiny-dot"></i> محرر تجريبي محلي</span><button id="sampleBtn">إدراج مثال</button></div>
+          </article>
+        </div>
+        <div class="bottom-grid">
+          <article class="panel preview-panel">
+            <div class="panel-head"><div><span class="dot blue-dot"></span><b>معاينة النتيجة</b></div><button class="small-btn" id="previewBtn">تحديث المعاينة ↻</button></div>
+            <iframe id="preview" sandbox="allow-scripts" title="معاينة الكود"></iframe>
+          </article>
+          <article class="panel activity-panel" id="activity">
+            <div class="panel-head"><div><span class="dot purple-dot"></span><b>سجل النشاط</b></div><button class="text-btn" id="clearLogBtn">مسح السجل</button></div>
+            <div class="logs" id="logs"><div class="log-item"><span class="log-time">--:--</span><span class="log-message">جاهز للتجربة. اضغط تشغيل للبدء.</span></div></div>
+          </article>
+        </div>
+      </section>
+      <footer>QUREO Solver <span>واجهة تجريبية قابلة للاستضافة</span><span class="footer-note">لا تتصل بمنصة QUREO حالياً</span></footer>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
